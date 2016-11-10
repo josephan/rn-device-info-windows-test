@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -12,42 +6,30 @@ import {
   View
 } from 'react-native';
 
+import Device from 'react-native-device-info';
+import PageOne from './components/PageOne';
+import PageTwo from './components/PageTwo';
+
+import {Scene, Router} from 'react-native-router-flux';
+
 class AwesomeProject extends Component {
   render() {
+    console.log('====================');
+    console.log('Device Info: ', Device.getModel());
+    console.log('====================');
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.windows.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Ctrl+R to reload,{'\n'}
-          Shift+F10 or shake for dev menu
-        </Text>
-      </View>
+      <Router>
+        <Scene key="root">
+          <Scene key="pageOne" component={PageOne} title="PageOne" initial={true} />
+          <Scene key="pageTwo" component={PageTwo} title="PageTwo" />
+        </Scene>
+      </Router>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+
 });
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);

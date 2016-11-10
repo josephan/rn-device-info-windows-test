@@ -9,6 +9,8 @@
   "dependencies": {
     "react": "15.3.2",
     "react-native": "0.36.0",
+    "react-native-device-info": "github:josephan/react-native-device-info",
+    "react-native-router-flux": "^3.36.0",
     "react-native-windows": "^0.36.1"
   },
   "jest": {
